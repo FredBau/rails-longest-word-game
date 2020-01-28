@@ -1,0 +1,12 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+<% @letters.each do |letter|%>
+  <p><%= letter %></p>
+  <% end %>
+
+  <%= form_with(url: "/score", local: true, method: "post") do |f| %>
+  <%= label_tag(:q, "Enter word:") %>
+  <%= f.text_field(:word) %>
+  <%= f.hidden_field :letters, value: @letters %>
+  <%= f.submit %>
+  <% end %>
